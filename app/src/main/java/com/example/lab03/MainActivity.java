@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -47,6 +48,34 @@ public class MainActivity extends AppCompatActivity {
         Log.d("OOP_TEST", "   ผลลัพธ์ของ CheckสistNote   ");
         Log.d("OOP_TEST","ชื่อหัวข้อ : " + myTask.getTitle());
         Log.d("OOP_TEST" , myTask.getSummary());
+
+        //เรียกใช้ classUser
+        Log.d("OOP_TEST","UserUnggor");
+        User EcoUser = new User();  //new ClassUser
+
+        EcoUser.setName("Mafeppy");   //use method of User
+        Log.d("OOP_TEST",EcoUser.getUserdata());
+
+        EcoUser.logIn();
+        Log.d("OOP_TEST",EcoUser.getUserdata());
+        EcoUser.logOUt();
+
+        Log.d("OOP_TEST", "normalUserEGO");//new ClassnormalUser
+        normalUser Newbei = new normalUser() ;
+        Newbei.setuserName("ราชาปีโป้อีโก้นูปๆ");//use method of normalUser
+        Log.d("OOP_TEST",Newbei.getUserdata());
+        Newbei.setproFile("ผู้เล่นโกรทไมน์เซ็ต");
+
+        Log.d("OOP_TEST",Newbei.setproFile(""));//new ClassVIPUser
+        VIPUser King = new VIPUser() ;
+        King.logIn();
+        Log.d("OOP_TEST",King.getUserdata());
+        King.setSpacialFront("Woooooooooooo");
+        Log.d("OOP_TEST",King.setSpacialFront(""));
+        King.setuserName("HEHEEBOY");
+        Log.d("OOP_TEST",King.setuserName(""));
+        Log.d("OOP_TEST",King.getUserdata());
+        King.logOUt();
 
     }
 

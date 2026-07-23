@@ -2,20 +2,23 @@ package com.example.lab03;
 
 public class User {
     //attributes
-    private String userName;
-    private String userId;
-    private String passWord;
-    private String eMail;
+    public String userName;
+    public String userId;
+    public String passWord;
+    public String eMail;
     //method
     public void logIn() {
         System.out.println("ชื่อผู้ใช้ " + userName);
         System.out.println("Login ");
     }
+    public  void setName (String newName){    //เปลี่ยนชื่อ
+        this.userName = newName ;
+    }
     public String getUserdata() {
         System.out.println(userName+"  "+userId +"  "+passWord+" "+eMail);
         return userName ;
     }
-    void logOUt() {
+    public void logOUt() {
         System.out.println("ชื่อผู้ใช้ " + userName);
         System.out.println("Logout ");
     }
