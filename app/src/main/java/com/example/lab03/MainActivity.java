@@ -1,11 +1,16 @@
 package com.example.lab03;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import java.util.List;
 import java.util.ArrayList;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -13,7 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button mButton,addButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        /*
         //textnote
         TextNote myText = new TextNote();
 
@@ -75,7 +81,30 @@ public class MainActivity extends AppCompatActivity {
         King.setuserName("HEHEEBOY");
         Log.d("OOP_TEST",King.setuserName(""));
         Log.d("OOP_TEST",King.getUserdata());
-        King.logOUt();
+        King.logOUt();*/
+
+        //event source
+        mButton = findViewById(R.id.button);
+        addButton = findViewById(R.id.button4);
+        //event listener
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //handler
+                System.out.println("clickkkkk");
+                Intent aboutMe = new Intent(getApplicationContext(),AboutMeActivity.class);
+                startActivity(aboutMe);
+            }
+        });
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("start your note");
+                Intent AadNote = new Intent(getApplicationContext(), AadNote.class);
+                startActivity(AadNote);
+            }
+        });
+
 
     }
 

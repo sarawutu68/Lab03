@@ -11,6 +11,7 @@ public class TextNote extends AbstractNote{
 
     @Override
     public String getSummary() {
-        return "สรุปบันทึกข้อความ : "+getTitle() + "( เนื้อหา " + conTent.length() + " ตัวอังษร )";
+       // return "สรุปบันทึกข้อความ : "+getTitle() + "( เนื้อหา " + conTent.length() + " ตัวอังษร )";
+        return getTitle()+":"+conTent+":"+creatDate+":";
     }
 }
