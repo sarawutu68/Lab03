@@ -15,10 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Date;
 
-public class AadNote extends AppCompatActivity {
+public class AddNoteActivity extends AppCompatActivity {
     EditText title,content;
     Button baButton,send;
     TextView showNote;
+    NoteControler controller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,8 @@ public class AadNote extends AppCompatActivity {
         showNote = findViewById(R.id.button5);
         showNote = findViewById(R.id.textView4);
 
+        controller = new NoteControler(this);
+
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,15 +55,20 @@ public class AadNote extends AppCompatActivity {
                 String strOfDate = new Date().toString();
 
                 //2.set data to textNote class
-                TextNote tNote = new TextNote();
-                tNote.setTitle(strOfTitle);
-                tNote.setContent(strOfContent);
-                tNote.creatDate = strOfDate;
+                controller.saveNote(strOfTitle,strOfDate,strOfContent);
+
+                //TextNote tNote = new TextNote();
+                //tNote.setTitle(strOfTitle);
+                //tNote.setContent(strOfContent);
+                //tNote.creatDate = strOfDate;
 
                 //3.show note (by method of class)
-                showNote.setText(tNote.getSummary());
+                //showNote.setText(tNote.getSummary());
 
             }
         });
+    }
+    void displayTextNote(TextNote note){
+        showNote.setText(note.getSummary());
     }
 }
