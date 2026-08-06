@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("start your note");
-                Intent AadNote = new Intent(getApplicationContext(), AddNoteActivity.class);
+                Intent AadNote = new Intent(getApplicationContext(), AadNoteActivity.class);
                 startActivity(AadNote);
             }
         });

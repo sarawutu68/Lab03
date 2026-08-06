@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Date;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AadNoteActivity extends AppCompatActivity {
     EditText title,content;
     Button baButton,send;
     TextView showNote;

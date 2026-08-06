@@ -2,10 +2,10 @@ package com.example.lab03;
 
 public class NoteControler {
     //Attribute
-    private AddNoteActivity view;
+    private AadNoteActivity view;
 
     //Contructor
-    public NoteControler(AddNoteActivity view){
+    public NoteControler(AadNoteActivity view){
         this.view = view;
     }
     //Method
