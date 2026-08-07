@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -18,7 +20,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    Button mButton,addButton;
+    Button mButton,aadButton,BrowseNoteButton;
+    ImageView logoImage;
+    ProgressBar  loadData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,63 +33,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        /*
-        //textnote
-        TextNote myText = new TextNote();
 
-        myText.setTitle("เซี่ยเป้ เซี่ยกำมะลอ");
-        myText.setContent("รวยจัด แต่บอกพอมีพอกิน");
 
-        //checkList
-        ChecklistNote myTask = new ChecklistNote();
-        myTask.setTitle("รวย เงินหนาทุนหนา");
-
-        List<String> richHuman = new ArrayList<>();
-        richHuman.add("รวย");
-        richHuman.add("บอกว่าตัวเองไม่รวย");
-        richHuman.add("โกหกหน้าตาย");
-        myTask.setCheckList(richHuman);
-
-        //logcat
-        Log.d("OOP_TEST", "   ผลลัพธ์ของ TextNote   ");
-        Log.d("OOP_TEST","ชื่อหัวข้อ : " + myText.getTitle());
-        Log.d("OOP_TEST" , myText.getSummary());
-
-        Log.d("OOP_TEST", "   ผลลัพธ์ของ CheckสistNote   ");
-        Log.d("OOP_TEST","ชื่อหัวข้อ : " + myTask.getTitle());
-        Log.d("OOP_TEST" , myTask.getSummary());
-
-        //เรียกใช้ classUser
-        Log.d("OOP_TEST","UserUnggor");
-        User EcoUser = new User();  //new ClassUser
-
-        EcoUser.setName("Mafeppy");   //use method of User
-        Log.d("OOP_TEST",EcoUser.getUserdata());
-
-        EcoUser.logIn();
-        Log.d("OOP_TEST",EcoUser.getUserdata());
-        EcoUser.logOUt();
-
-        Log.d("OOP_TEST", "normalUserEGO");//new ClassnormalUser
-        normalUser Newbei = new normalUser() ;
-        Newbei.setuserName("ราชาปีโป้อีโก้นูปๆ");//use method of normalUser
-        Log.d("OOP_TEST",Newbei.getUserdata());
-        Newbei.setproFile("ผู้เล่นโกรทไมน์เซ็ต");
-
-        Log.d("OOP_TEST",Newbei.setproFile(""));//new ClassVIPUser
-        VIPUser King = new VIPUser() ;
-        King.logIn();
-        Log.d("OOP_TEST",King.getUserdata());
-        King.setSpacialFront("Woooooooooooo");
-        Log.d("OOP_TEST",King.setSpacialFront(""));
-        King.setuserName("HEHEEBOY");
-        Log.d("OOP_TEST",King.setuserName(""));
-        Log.d("OOP_TEST",King.getUserdata());
-        King.logOUt();*/
 
         //event source
         mButton = findViewById(R.id.button);
-        addButton = findViewById(R.id.button4);
+        aadButton = findViewById(R.id.button4);
+        BrowseNoteButton = findViewById(R.id.button6);
+        loadData = findViewById(R.id.progressBar);
         //event listener
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(aboutMe);
             }
         });
-        addButton.setOnClickListener(new View.OnClickListener() {
+        aadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("start your note");
@@ -104,6 +59,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(AadNote);
             }
         });
+        loadData.setVisibility(View.GONE);
+        BrowseNoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //show progress
+                loadData.setVisibility(View.VISIBLE);
+                //Creat Threat
+                new Thread(()->{
+                    //load data from DB (delay 4 seconds)
+                    try {
+                        Thread.sleep(4000);
+                    } catch (InterruptedException e){
+                    }
+
+                    //return to main Thread
+                    runOnUiThread(() -> {
+                        loadData.setVisibility(View.GONE);//Progress bat is gone
+                        System.out.println("Go to Browse");
+                        Intent BrowseNote = new Intent(getApplicationContext(),BrowseNoteActivity2.class);
+                        startActivity(BrowseNote);
+                        finish();
+
+                    });
+
+
+                }).start();
+
+            }
+        });
+
+        logoImage = findViewById(R.id.imageView);
+        logoImage.setImageResource(R.drawable.logo);
 
 
     }
