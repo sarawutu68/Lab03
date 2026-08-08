@@ -41,7 +41,7 @@ public class AadNoteActivity extends AppCompatActivity {
         });
         title = findViewById(R.id.editTextText);
         content = findViewById(R.id.editTextText2);
-        showNote = findViewById(R.id.button5);
+        send = findViewById(R.id.button5);
         showNote = findViewById(R.id.textView4);
 
         controller = new NoteControler(this);
