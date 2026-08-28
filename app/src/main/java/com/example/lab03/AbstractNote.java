@@ -1,10 +1,12 @@
 package com.example.lab03;
 
+import java.util.Date;
+
 public abstract class AbstractNote {
     //attributes
     public String tiTle;
     public String conTent;
-    public String creatDate;
+    public Date creatDate;
     //method
     public String getTitle(){
         return tiTle;
