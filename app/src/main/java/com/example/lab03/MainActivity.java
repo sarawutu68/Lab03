@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    public static normalUser currentUser = new normalUser();
     Button mButton,aadButton,BrowseNoteButton;
     ImageView logoImage;
     ProgressBar  loadData;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //handler
-                System.out.println("clickkkkk");
+                System.out.println("So Lazyyyyyyyyyyyyyyyyyyyyyy");
                 Intent aboutMe = new Intent(getApplicationContext(),AboutMeActivity.class);
                 startActivity(aboutMe);
             }
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 new Thread(()->{
                     //load data from DB (delay 4 seconds)
                     try {
-                        Thread.sleep(4000);
+                        Thread.sleep(2500);
                     } catch (InterruptedException e){
                     }
 

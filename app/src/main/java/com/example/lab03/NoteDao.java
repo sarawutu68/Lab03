@@ -16,6 +16,9 @@ public interface NoteDao {
     @Query("SELECT * FROM notes ORDER BY createdDate DESC")
     List<NoteEntity> getAll();
 
+    @Query("SELECT * FROM notes WHERE title LIKE :search OR content LIKE :search")
+    List<NoteEntity> searchNotes(String search);
+
     @Delete
     void delete(NoteEntity note);
 }

@@ -55,7 +55,7 @@ public class AadNoteActivity extends AppCompatActivity {
                 String strOfDate = new Date().toString();
 
                 //2.set data to textNote class
-                controller.saveNote(strOfTitle,strOfDate,strOfContent);
+                controller.saveNote(strOfTitle,strOfContent,strOfDate);
 
                 //TextNote tNote = new TextNote();
                 //tNote.setTitle(strOfTitle);

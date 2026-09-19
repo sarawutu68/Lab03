@@ -7,6 +7,11 @@ public abstract class AbstractNote {
     public String tiTle;
     public String conTent;
     public Date creatDate;
+    public User owner;
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
     //method
     public String getTitle(){
         return tiTle;

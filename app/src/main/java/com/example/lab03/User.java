@@ -6,6 +6,11 @@ public class User {
     public String userId;
     public String passWord;
     public String eMail;
+    public java.util.List<AbstractNote> notes = new java.util.ArrayList<>();
+
+    public void addNote(AbstractNote note) {
+        notes.add(note);
+    }
     //method
     public void logIn() {
         System.out.println("ชื่อผู้ใช้ " + userName);
